@@ -1,14 +1,14 @@
 import { Routes, Route } from 'react-router-dom'
-import './App.css'
+import '@/assets/App.css'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
-import Blog from './pages/Blog'
+import Blog from './pages/Blog/Blog'
 
 function App() {
   return (
-    <div className='h-1000'>
+    <div className=''>
       <Navbar />
-      <div className="container mx-auto mt-4">
+      <div className="">
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/blog" element={<Blog />}></Route>
