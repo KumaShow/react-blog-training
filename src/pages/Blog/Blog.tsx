@@ -51,24 +51,30 @@ export default function Blog() {
     <div>
       {/* Banner 區塊 */}
       <section className="">
-        <div className="md:relative w-full md:h-[70vh]  text-primary">
-          <div className="flex flex-col md:flex-row md:absolute md:top-0 md:left-0 md:w-full md:h-full">
-            <img className="object-cover h-full w-full" src={bannerImg1} alt="部落格 Banner 圖片" />
-            <img className="object-cover h-full w-full" src={bannerImg2} alt="部落格 Banner 圖片" />
-          </div>
+        <div className="flex flex-col lg:flex-row lg:h-[70vh]">
+          {/* 左側：人物背景圖 */}
+          <div
+            className="w-full h-[50vh] lg:w-1/2 lg:h-full bg-cover bg-center"
+            style={{ backgroundImage: `url(${bannerImg1})` }}
+          ></div>
 
-          <div className="p-4 md:absolute md:top-1/2 md:left-[60%] md:-translate-x-1/2 md:-translate-y-1/2">
-            <h1>BLOG</h1>
-            <p className="font-bold">前端工程師 & 職涯諮詢師</p>
+          {/* 右側：文字與背景圖 */}
+          <div
+            className="w-full lg:w-1/2 bg-cover bg-center flex items-center justify-center"
+            style={{ backgroundImage: `url(${bannerImg2})` }}
+          >
+            <div className=" text-blue-700 font-bold p-8">
+              <h1 className="text-4xl lg:text-[120px]">BLOG</h1>
+              <p className="mt-4 text-xl lg:text-2xl">前端工程師 & 職涯諮詢師</p>
+            </div>
           </div>
-
         </div>
       </section>
 
       {/* 最新文章區塊 */}
       <section className="md:flex md:gap-6 border-b-1 border-neutral-300">
         <div className="md:basis-1/2">
-          <img src={lastestBlogPost.imgUrl} alt={lastestBlogPost.title} />
+          <img className="object-cover h-full w-full" src={lastestBlogPost.imgUrl} alt={lastestBlogPost.title} />
         </div>
 
         <div className="px-3 py-12 md:basis-1/2 md:flex md:flex-col md:justify-center md:max-w-[40%]">
