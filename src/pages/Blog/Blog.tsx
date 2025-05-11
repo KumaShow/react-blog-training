@@ -1,12 +1,9 @@
 import Card from '@/components/Card';
+import Banner from '@/components/Banner';
 import { BlogPost } from '@/interfaces/blog';
-import blogPostList from './blogPostList'; // 假資料：部落格文章列表
-import bannerImg1 from '@/assets/img/bannerImg1.jpg';
-import bannerImg2 from '@/assets/img/bannerImg2.jpg';
+import blogPostList from './BlogPostList'; // 假資料：部落格文章列表
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faYoutube, faFacebook, faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { faPodcast } from '@fortawesome/free-solid-svg-icons';
-
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 export default function Blog() {
 
@@ -47,28 +44,12 @@ export default function Blog() {
   // 假資料：最新文章
   const lastestBlogPost: BlogPost = blogPostList.filter(blogPost => blogPost.isNew)[0];
 
+
   return (
     <div>
       {/* Banner 區塊 */}
-      <section className="">
-        <div className="flex flex-col lg:flex-row lg:h-[70vh]">
-          {/* 左側：人物背景圖 */}
-          <div
-            className="w-full h-[50vh] lg:w-1/2 lg:h-full bg-cover bg-center"
-            style={{ backgroundImage: `url(${bannerImg1})` }}
-          ></div>
-
-          {/* 右側：文字與背景圖 */}
-          <div
-            className="w-full lg:w-1/2 bg-cover bg-center flex items-center justify-center"
-            style={{ backgroundImage: `url(${bannerImg2})` }}
-          >
-            <div className=" text-blue-700 font-bold p-8">
-              <h1 className="text-4xl lg:text-[120px]">BLOG</h1>
-              <p className="mt-4 text-xl lg:text-2xl">前端工程師 & 職涯諮詢師</p>
-            </div>
-          </div>
-        </div>
+      <section>
+        <Banner title="BLOG" subTitle="前端工程師 & 職涯諮詢師" />
       </section>
 
       {/* 最新文章區塊 */}
@@ -103,17 +84,23 @@ export default function Blog() {
 
 
       {/* 其他文章區塊 */}
-      <section className="border-b-1 border-b-neutral-400">
-        <div className="py-16 px-3 md:py-20 md:container mx-auto ">
+      <section>
+        <div className="py-16 px-3 md:px-0 md:py-20 md:container mx-auto ">
           <div className="md:px-3 md:grid md:grid-cols-12 md:gap-6">
-            <input
-              type="text"
-              className="block px-3 py-2 rounded-4xl border-2 w-full md:w-auto md:col-span-4"
-              placeholder="搜尋你感興趣的文章"
-            />
+            <div className="relative w-full md:w-auto md:col-span-4">
+              <input
+                type="text"
+                className="block px-3 py-2 pl-10 rounded-4xl border-2 w-full"
+                placeholder="搜尋你感興趣的文章"
+              />
+              <FontAwesomeIcon
+                icon={faMagnifyingGlass}
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+              />
+            </div>
           </div>
 
-          <ul className="md:px-3 py-12 space-y-8 md:space-y-0 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3">
+          <ul className="md:px- py-12 space-y-8 md:space-y-0 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3">
             {
               blogPostList.filter(blogPost => !blogPost.isNew).map((blogPost: BlogPost) => {
                 return (
@@ -137,25 +124,6 @@ export default function Blog() {
           </div>
         </div>
       </section>
-
-      <footer className="">
-        <div className="container mx-auto py-20 hidden md:flex justify-between items-center">
-          <h2 className="text-3xl">
-            <a href="mailto:alysewang@hexschool.com">alysewang@hexschool.com</a>
-          </h2>
-
-          <ul className="flex gap-2">
-            <li><FontAwesomeIcon icon={faYoutube} /></li>
-            <li><FontAwesomeIcon icon={faPodcast} /></li>
-            <li><FontAwesomeIcon icon={faFacebook} /></li>
-            <li><FontAwesomeIcon icon={faLinkedin} /></li>
-            <li><FontAwesomeIcon icon={faInstagram} /></li>
-          </ul>
-        </div>
-
-        <p className="text-center py-6">© 2025 Alyse Wang. All rights reserved.</p>
-      </footer>
-
     </div>
   )
 }
