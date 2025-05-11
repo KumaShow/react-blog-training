@@ -1,7 +1,7 @@
 import Card from '@/components/Card';
 import Banner from '@/components/Banner';
 import { BlogPost } from '@/interfaces/blog';
-import blogPostList from './BlogPostList'; // 假資料：部落格文章列表
+import blogPostList from '@/pages/Blog/BlogPostList'; // 假資料：部落格文章列表
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
