@@ -1,8 +1,8 @@
 import { useLocation } from 'react-router-dom';
-import { SocialMediaIcon } from '@/interfaces/socialMedia';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faYoutube, faFacebook, faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faArrowRight, faPodcast } from '@fortawesome/free-solid-svg-icons';
+import SocialMediaIcons from './SocialMediaIcons';
 
 export default function Footer() {
   const location = useLocation();
@@ -41,19 +41,12 @@ export default function Footer() {
     },
   ];
 
-  // Social Media Icons
-  const socialMediaIcons: SocialMediaIcon[] = [
-    { icon: faYoutube, link: 'https://www.youtube.com/' },
-    { icon: faPodcast, link: 'https://www.podcast.com/' },
-    { icon: faFacebook, link: 'https://www.facebook.com/' },
-    { icon: faLinkedin, link: 'https://www.linkedin.com/' },
-    { icon: faInstagram, link: 'https://www.instagram.com/' },
-  ];
+
 
   return (
     <footer className="border-t-1 border-t-neutral-400">
       {/* 首頁 Footer 區塊 */}
-      {isHomePage && <div className="container mx-auto py-16 md:py-20">
+      {isHomePage && <div className="container py-16 md:py-20">
         <h2 className="text-5xl md:text-6xl mb-6">與我聯繫</h2>
 
         <ul>
@@ -77,22 +70,12 @@ export default function Footer() {
 
       {/* 非首頁 Footer 區塊 */}
       {
-        !isHomePage && <div className="container mx-auto py-20 hidden md:flex justify-between items-center">
-          <h2 className="text-3xl">
+        !isHomePage && <div className="container py-20 hidden md:flex justify-between items-center">
+          <h2 className="md:text-2xl lg:text-3xl">
             <a href="mailto:alysewang@hexschool.com">alysewang@hexschool.com</a>
           </h2>
 
-          <ul className="flex gap-6 text-primary text-2xl">
-            {
-              socialMediaIcons.map(icon => (
-                <li key={icon.link}>
-                  <a href={icon.link}>
-                    <FontAwesomeIcon icon={icon.icon} />
-                  </a>
-                </li>
-              ))
-            }
-          </ul>
+          <SocialMediaIcons />
         </div>
       }
 
