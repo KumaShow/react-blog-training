@@ -50,7 +50,7 @@ export default function Blog() {
 
       {/* 其他文章區塊 */}
       <section>
-        <div className="py-16 px-3 md:px-0 md:py-20 md:container mx-auto ">
+        <div className="py-16  md:py-20 container ">
           <div className="md:px-3 md:grid md:grid-cols-12 md:gap-6">
             <div className="relative w-full md:w-auto md:col-span-4">
               <input
