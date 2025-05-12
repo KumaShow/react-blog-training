@@ -12,12 +12,12 @@ export default function Banner({ title, subTitle }: { title: string, subTitle: s
 
       {/* 右側：文字與背景圖 */}
       <div
-        className="w-full lg:w-1/2 bg-cover bg-center flex items-center justify-center"
+        className="w-full pb-50 lg:pb-0 lg:w-1/2 bg-cover bg-center flex items-center justify-center"
         style={{ backgroundImage: `url(${bannerImg2})` }}
       >
         <div className=" text-blue-700 font-bold p-8">
-          <h1 className="text-4xl lg:text-[120px]">{title}</h1>
-          <p className="mt-4 text-xl lg:text-2xl">{subTitle}</p>
+          <h1 className="text-4xl lg:text-7xl">{title}</h1>
+          <p className="mt-4 text-lg md:text-xl lg:text-2xl">{subTitle}</p>
         </div>
       </div>
     </div>
