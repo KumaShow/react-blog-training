@@ -67,10 +67,10 @@ export default function Blog() {
 
           <ul className="md:px- py-12 space-y-8 md:space-y-0 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3">
             {
-              blogPostList.filter((blogPost: BlogPost) => !blogPost.isNew).map((blogPost: BlogPost) => {
+              blogPostList.filter((blogPost: BlogPost) => !blogPost.isNew).map((blogPost: BlogPost, index: number) => {
                 return (
                   <li key={blogPost.id}>
-                    <Card {...blogPost} />
+                    <Card {...blogPost} aosDelay={index * 150} />
                   </li>
                 )
               })
@@ -79,13 +79,13 @@ export default function Blog() {
 
           {/* Pagination */}
           <div className="flex justify-center mt-8">
-            <button className="bg-transparent">{`<`}</button>
+            <button className="bg-transparent px-2">{`<`}</button>
             {
               Array.from({ length: 5 }, (_, index) => (
-                <button key={index} className="bg-transparent ms-2">{index + 1}</button>
+                <button key={index} className="bg-transparent py-2.5 px-4">{index + 1}</button>
               ))
             }
-            <button className="bg-transparent ms-4">{`>`}</button>
+            <button className="bg-transparent ms-4 px-2">{`>`}</button>
           </div>
         </div>
       </section>
