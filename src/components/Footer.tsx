@@ -49,18 +49,21 @@ export default function Footer() {
       {isHomePage && <div className="container py-16 md:py-20">
         <h2 className="text-5xl md:text-6xl mb-6">與我聯繫</h2>
 
-        <ul>
+        <ul className="[&>li:not(:last-child)]:mb-6 lg:[&>li:not(:last-child)]:mb-0">
           {contactList.map((item, index) => (
             <li key={index} className="border-b-2 border-neutral-300">
-              <a href={item.link} className="py-4 flex justify-between items-center">
-                <span>
+              <a href={item.link} className="group text-lg md:text-xl py-4 md:flex md:justify-between items-center">
+                <div className="flex items-center">
                   {
-                    item.icon && <FontAwesomeIcon icon={item.icon} className="text-primary mr-2" />
+                    item.icon && <FontAwesomeIcon icon={item.icon} className="text-primary mr-2 p-2.5 block" />
                   }
-                  {item.title}
-                </span>
 
-                <FontAwesomeIcon icon={faArrowRight} />
+                  <span className="group-hover:translate-x-2 transition-all duration-150 block">
+                    {item.title}
+                  </span>
+                </div>
+
+                <FontAwesomeIcon icon={faArrowRight} className="group-hover:translate-x-2 transition-all duration-150 ml-2.5 md:ml-0" />
               </a>
             </li>
           ))}
