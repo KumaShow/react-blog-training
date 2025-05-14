@@ -12,7 +12,7 @@ export default function Banner({ title, subTitle }: { title: string, subTitle: s
 
       {/* 右側：文字與背景圖 */}
       <div
-        className="w-full pb-50 lg:pb-0 lg:w-1/2 bg-cover bg-center flex items-center justify-center"
+        className="w-full pb-20 lg:pb-0 lg:w-1/2 bg-cover bg-center flex items-center justify-center"
         style={{ backgroundImage: `url(${bannerImg2})` }}
       >
         <div className=" text-blue-700 font-bold p-8">
