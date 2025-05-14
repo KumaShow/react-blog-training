@@ -82,30 +82,51 @@ export default function Home() {
 
   return (
     <div>
-      <section className="relative pb-70 md:pb-50 lg:pb-50">
+      <section className="">
         <Banner title="Alyse Wang" subTitle="前端工程師 & 職涯諮詢師" />
 
-        <div className="px-6 py-10 absolute left-3 right-3 bottom-[3%] md:bottom-[10%] lg:left-[35%] lg:right-[10%] lg:-bottom-[25%] xl:-bottom-[10%] lg:px-10 lg:py-20 text-lg lg:text-xl bg-white shadow-2xl">
-          <p className="mb-4">嗨，我是 Alyse 一名深耕前端技術的工程師。</p>
-          <p className="mb-4">
-            擅長 React、Vue 等框架，同時熱愛為轉職與新手工程師提供職涯指導。邀請你與我一起，開啟更具潛能的程式與職涯之旅！
-          </p>
+        <div className="lg:grid lg:grid-cols-12 lg:container relative z-10" data-aos="fade-up" data-aos-duration="1500">
+          <div className="bg-white px-6 py-10 -mt-20 lg:col-start-5 lg:col-span-7 lg:inline-block text-lg lg:text-xl lg:shadow-2xl">
+            <p className="mb-4">嗨，我是 Alyse 一名深耕前端技術的工程師。</p>
+            <p className="mb-4">
+              擅長 React、Vue 等框架，同時熱愛為轉職與新手工程師提供職涯指導。邀請你與我一起，開啟更具潛能的程式與職涯之旅！
+            </p>
 
-          <SocialMediaIcons />
+            <SocialMediaIcons />
+          </div>
+
         </div>
       </section>
 
       {/* 專業服務與方案 */}
       <section className="container py-16 md:py-20">
-        <h2 className="text-5xl lg:text-6xl mb-8">專業服務與方案</h2>
+        <h2
+          className="text-5xl lg:text-6xl mb-8"
+          data-aos="fade-up"
+          data-aos-duration="1500"
+        >
+          專業服務與方案
+        </h2>
 
         <ul className="[&>li:not(:last-child)]:mb-8 lg:[&>li:not(:last-child)]:mb-16 mb-8">
           {
             serviceList.map((item, index) => (
               <li key={index} className="lg:flex items-center lg:px-28 lg:even:flex-row-reverse lg:odd:[&>div]:-ml-20 lg:even:[&>div]:-mr-20">
-                <img src={item.imgUrl} alt={item.title} className="lg:max-w-6/10" />
+                <img
+                  src={item.imgUrl}
+                  alt={item.title}
+                  className="lg:max-w-6/10"
+                  data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+                  data-aos-duration="1000"
+                  data-aos-delay={`${index * 200}`}
+                />
 
-                <div className="p-6 bg-white lg:min-w-120 relative z-10">
+                <div
+                  className="p-6 bg-white lg:min-w-120 relative z-10"
+                  data-aos={index % 2 === 0 ? "fade-left" : "fade-right"}
+                  data-aos-duration="1000"
+                  data-aos-delay={`${index * 200}`}
+                >
                   <div className="flex items-center justify-center w-10 h-10">
                     <div className="w-7.5 h-[2.5px] bg-primary"></div>
                   </div>
@@ -130,7 +151,7 @@ export default function Home() {
 
       {/* 部落格精選 */}
       <section className="container py-16 md:py-20">
-        <h2 className="text-5xl lg:text-6xl mb-8">部落格精選</h2>
+        <h2 className="text-5xl lg:text-6xl mb-8" data-aos="fade-up" data-aos-duration="1500">部落格精選</h2>
         <ul className="[&>li:not(:last-child)]:mb-6 lg:[&>li:not(:last-child)]:mb-0">
           {/* 在這裡添加部落格文章 */}
         </ul>
@@ -138,7 +159,7 @@ export default function Home() {
 
       {/* 職涯諮詢成功案例 */}
       <section className="container py-16 md:py-20">
-        <h2 className="text-5xl lg:text-6xl mb-8">職涯諮詢成功案例</h2>
+        <h2 className="text-5xl lg:text-6xl mb-8" data-aos="fade-up" data-aos-duration="1500">職涯諮詢成功案例</h2>
 
         <div className="mb-10">
 
