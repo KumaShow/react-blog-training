@@ -36,7 +36,7 @@ const Card = (props: CardProps) => {
         {/* 渲染標籤 */}
         {
           tags.map((item, index) => {
-            return <span key={index} className="text-primary text-2xl mr-2">
+            return <span key={index} className="text-primary text-lg mr-2">
               {`#${item}`}
             </span>
           })
@@ -45,7 +45,7 @@ const Card = (props: CardProps) => {
         {/* 渲染 Badge */}
         {
           renderBadges.map((badgeText, index) =>
-            <span key={index} className="bg-primary text-white py-1.5 px-3 ms-2 rounded-4xl font-bold">
+            <span key={index} className="bg-primary text-white py-1.5 px-3 ms-2 rounded-full font-bold">
               {badgeText}
             </span>
           )
