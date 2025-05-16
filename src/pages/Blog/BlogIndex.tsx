@@ -1,7 +1,8 @@
+import { Link } from 'react-router-dom';
 import Card from '@/components/Card';
 import Banner from '@/components/Banner';
 import { BlogPost } from '@/interfaces/blog';
-import blogPostList from '@/pages/Blog/BlogPostList'; // 假資料：部落格文章列表
+import blogPostList from '@/pages/Blog/blogPostList'; // 假資料：部落格文章列表
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
@@ -40,9 +41,9 @@ export default function Blog() {
           </p>
 
           <div>
-            <a href="#" className="inline-block text-black py-2 px-3 border-black border-1 rounded-4xl">
+            <Link to={`/blog/${lastestBlogPost.id}`} className="inline-block text-black py-2 px-3 border-black border-1 rounded-4xl">
               閱讀內文
-            </a>
+            </Link>
           </div>
         </div>
       </section>

@@ -6,7 +6,7 @@ import '@/assets/App.css'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
-import Blog from './pages/Blog/Blog'
+import Blog from './pages/Blog/BlogIndex'
 
 function App() {
   useEffect(() => {
@@ -14,14 +14,12 @@ function App() {
   }, []); // 空陣列表示只在元件掛載時執行一次
 
   return (
-    <div className=''>
+    <div>
       <Navbar />
-      <div className="">
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/blog" element={<Blog />}></Route>
         </Routes>
-      </div>
 
       <Footer />
     </div>
