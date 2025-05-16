@@ -7,6 +7,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import Blog from './pages/Blog/BlogIndex'
+import BlogDetail from './pages/Blog/BlogDetail';
 
 function App() {
   useEffect(() => {
@@ -16,10 +17,11 @@ function App() {
   return (
     <div>
       <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/blog" element={<Blog />}></Route>
-        </Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="blog" element={<Blog />} />
+        <Route path="blog/:blogId" element={<BlogDetail />} />
+      </Routes>
 
       <Footer />
     </div>
