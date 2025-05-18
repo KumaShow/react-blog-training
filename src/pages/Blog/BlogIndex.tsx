@@ -74,10 +74,16 @@ export default function Blog() {
           <ul className="md:px- py-12 space-y-8 md:space-y-0 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3">
             {blogPostList
               .filter((blogPost: BlogPost) => !blogPost.isNew)
-              .map((blogPost: BlogPost, index: number) => {
+              .map((blogPost: BlogPost) => {
                 return (
-                  <li key={blogPost.id}>
-                    <Card {...blogPost} aosDelay={index * 150} />
+                  <li
+                    key={blogPost.id}
+                    data-aos="fade-up"
+                    data-aos-delay={500}
+                    data-aos-duration="500"
+                    data-aos-anchor-placement="center-bottom"
+                  >
+                    <Card {...blogPost} />
                   </li>
                 );
               })}
