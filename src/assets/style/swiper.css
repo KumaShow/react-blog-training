@@ -1,25 +1,25 @@
 .swiper {
-  /* padding: 0 40px; */
-  /* position: relative; */
+  /* 讓 Swiper 的位置繼承父元素，用於設定箭頭的定位 */
+  position: inherit;
 }
 
 /* 自訂 Swiper 導航箭頭的樣式 */
 .swiper-button-prev,
 .swiper-button-next {
-  color: var(--color-primary) !important;
-  font-size: 30px !important;
-  width: 44px !important;
-  height: 44px !important;
+  color: var(--color-primary);
+  font-size: 30px;
+  width: 44px;
+  height: 44px;
 
   /* 移除 Swiper 預設的箭頭內容 */
   &::after {
-    display: none !important; /* 隱藏 Swiper 預設的偽元素內容 */
+    display: none; /* 隱藏 Swiper 預設的偽元素內容 */
   }
 }
 
 /* 為前一個箭頭添加 Font Awesome 圖示 */
 .swiper-button-prev {
-  left: -4px !important;
+  left: -5%;
 
   &::before {
     font-family: 'Font Awesome 6 Free';
@@ -30,7 +30,7 @@
 
 /* 為下一個箭頭添加 Font Awesome 圖示 */
 .swiper-button-next {
-  right: -20px !important;
+  right: -5%;
 
   &::before {
     font-family: 'Font Awesome 6 Free';
@@ -39,9 +39,29 @@
   }
 }
 
-/* .swiper-slide-prev {
-  margin-left: -20px !important;
+@media (max-width: 768px) {
+  /* 在小螢幕上，箭頭顯示在底部 */
+  .swiper-button-prev,
+  .swiper-button-next {
+    top: auto;
+    bottom: -32px;
+    left: auto;
+  }
+
+  .swiper-button-prev {
+    right: 40px;
+  }
+  .swiper-button-next {
+    right: -2%;
+  }
 }
-.swiper-slide-next {
-  margin-right: 20px !important;
+
+/* @media (max-width: 1024px) {
+  .swiper-button-prev {
+    left: -4%;
+  }
+
+  .swiper-button-next {
+    right: -4%;
+  }
 } */
