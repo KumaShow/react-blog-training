@@ -175,7 +175,7 @@ export default function Home() {
             部落格精選
           </h2>
 
-          <div data-aos="fade-up" data-aos-duration="1500">
+          <div data-aos="fade-up" data-aos-duration="1500" className="pb-8">
             <Carousel />
           </div>
         </div>
