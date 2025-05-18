@@ -8,7 +8,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className=" text-center">
+    <nav className="sticky top-0 z-50 bg-white text-center">
       <NavLink to="/" end className={getNavLinkClassName}>
         首頁
       </NavLink>
