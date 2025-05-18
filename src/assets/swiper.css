@@ -1,0 +1,47 @@
+.swiper {
+  /* padding: 0 40px; */
+  /* position: relative; */
+}
+
+/* 自訂 Swiper 導航箭頭的樣式 */
+.swiper-button-prev,
+.swiper-button-next {
+  color: var(--color-primary) !important;
+  font-size: 30px !important;
+  width: 44px !important;
+  height: 44px !important;
+
+  /* 移除 Swiper 預設的箭頭內容 */
+  &::after {
+    display: none !important; /* 隱藏 Swiper 預設的偽元素內容 */
+  }
+}
+
+/* 為前一個箭頭添加 Font Awesome 圖示 */
+.swiper-button-prev {
+  left: -4px !important;
+
+  &::before {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900; /* 實心圖示 (solid) 需要設置 900 */
+    content: '\f0a8'; /* 左箭頭 (circle-arrow-left) 的 Unicode */
+  }
+}
+
+/* 為下一個箭頭添加 Font Awesome 圖示 */
+.swiper-button-next {
+  right: -20px !important;
+
+  &::before {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    content: '\f0a9'; /* 右箭頭 (circle-arrow-right) 的 Unicode */
+  }
+}
+
+/* .swiper-slide-prev {
+  margin-left: -20px !important;
+}
+.swiper-slide-next {
+  margin-right: 20px !important;
+} */
