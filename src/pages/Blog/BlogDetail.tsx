@@ -1,4 +1,5 @@
-import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronLeft,
@@ -6,7 +7,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import blogPostList from '@/pages/Blog/blogPostList'; // 假資料：部落格文章列表
 import ReactMarkdown from 'react-markdown';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import blogDetail_1 from '@/assets/img/BlogDetail/blogDetail_1.jpg';
 import blogDetail_2 from '@/assets/img/BlogDetail/blogDetail_2.jpg';
 import blogDetail_3 from '@/assets/img/BlogDetail/blogDetail_3.jpg';
@@ -14,10 +14,24 @@ import blogDetail_4 from '@/assets/img/BlogDetail/blogDetail_4.jpg';
 
 export default function BlogDetail() {
   const { blogId } = useParams<{ blogId: string }>();
-  const blogPost = blogPostList.find((post) => post.id === Number(blogId));
+  const currentBlogId = Number(blogId);
+  const blogPost = blogPostList.find((post) => post.id === currentBlogId);
+
+  // 確保 blogPostList 不是空的，並且有元素
+  const firstId = blogPostList.length > 0 ? blogPostList[0].id : -1;
+  const latestId =
+    blogPostList.length > 0 ? blogPostList[blogPostList.length - 1].id : -1;
+
+  const isFirstPost = currentBlogId === firstId;
+  const isLastPost = currentBlogId === latestId;
+  const onlyOnePost = blogPostList.length === 1;
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [blogId]);
 
   if (!blogPost) {
-    return <div>文章不存在</div>;
+    return <div className="text-4xl p-20 text-center">文章不存在</div>;
   }
 
   const { title, date, imgUrl } = blogPost;
@@ -164,7 +178,7 @@ export default function BlogDetail() {
             ul: (props) => <ul className="list-disc ml-6 mb-6" {...props} />,
             blockquote: (props) => (
               <blockquote
-                className="p-6 mb-3 bg-neutral-50 rounded-3xl font-bold [&>p]:mb-0"
+                className="p-6 mb-3 bg-neutral-200 rounded-3xl font-bold [&>p]:mb-0"
                 {...props}
               />
             ),
@@ -182,20 +196,48 @@ export default function BlogDetail() {
         />
 
         <div className="flex justify-between">
-          <button
-            type="button"
-            className="px-4 py-2 rounded-full border border-neutral-800 hover:bg-neutral-100  hover:shadow-md"
+          <Link
+            to={
+              isFirstPost || onlyOnePost
+                ? `/blog/${currentBlogId}`
+                : `/blog/${currentBlogId - 1}`
+            }
+            className={`px-4 py-2 rounded-full border border-neutral-800 transition duration-300 ${
+              isFirstPost || onlyOnePost
+                ? 'opacity-50 cursor-not-allowed bg-neutral-100 text-neutral-400 border-neutral-300'
+                : 'hover:bg-primary hover:text-white'
+            }`}
+            onClick={(e) => {
+              if (isFirstPost || onlyOnePost) {
+                e.preventDefault();
+              }
+            }}
+            aria-disabled={isFirstPost || onlyOnePost}
           >
             <FontAwesomeIcon icon={faChevronLeft} className="mr-2" />
             上一篇
-          </button>
-          <button
-            type="button"
-            className="px-4 py-2 rounded-full border border-neutral-800 hover:bg-neutral-100  hover:shadow-md"
+          </Link>
+          <Link
+            to={
+              isLastPost || onlyOnePost
+                ? `/blog/${currentBlogId}`
+                : `/blog/${currentBlogId + 1}`
+            }
+            className={`px-4 py-2 rounded-full border border-neutral-800 transition duration-300 ${
+              isLastPost || onlyOnePost
+                ? 'opacity-50 cursor-not-allowed bg-neutral-100 text-neutral-400 border-neutral-300'
+                : 'hover:bg-primary hover:text-white'
+            }`}
+            onClick={(e) => {
+              if (isLastPost || onlyOnePost) {
+                e.preventDefault();
+              }
+            }}
+            aria-disabled={isLastPost || onlyOnePost}
           >
             下一篇
             <FontAwesomeIcon icon={faChevronRight} className="ml-2" />
-          </button>
+          </Link>
         </div>
       </section>
     </div>
