@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { BlogPost } from '@/interfaces/blog';
 
 interface Badge {
@@ -5,13 +6,8 @@ interface Badge {
   label: string;
 }
 
-interface CardProps extends BlogPost {
-  aosDelay?: number;
-}
-
-const Card = (props: CardProps) => {
-  const { title, date, tags, description, imgUrl, isNew, isHot, aosDelay } =
-    props;
+const Card = (props: BlogPost) => {
+  const { title, date, tags, description, imgUrl, isNew, isHot } = props;
 
   // 最新文章、人氣文章的條件 Map
   const additionalBadges: Badge[] = [
@@ -23,13 +19,7 @@ const Card = (props: CardProps) => {
     .map((badge: Badge) => badge.label);
 
   return (
-    <div
-      data-aos="fade-up"
-      data-aos-delay={aosDelay}
-      data-aos-duration="500"
-      data-aos-anchor-placement="center-bottom"
-      className="hover:shadow-lg hover:-translate-y-2.5 hover:transition-all duration-300 bg-white p-6"
-    >
+    <Link to={`/blog/${props.id}`} className="group">
       <img
         className="mb-4 aspect-video object-cover"
         src={imgUrl}
@@ -59,19 +49,19 @@ const Card = (props: CardProps) => {
         ))}
       </div>
 
-      <h2 className="text-xl font-bold mb-2">{title}</h2>
+      <h2 className="text-xl font-bold mb-2 line-clamp-1">{title}</h2>
 
       <p className="line-clamp-2 mb-4">{description}</p>
 
       <div>
-        <a
-          href="#"
-          className="inline-block text-black py-2 px-3 border-black border-1 rounded-4xl"
+        <button
+          type="button"
+          className="text-black py-2 px-3 border-black border-1 rounded-4xl group-hover:bg-primary group-hover:text-white transition duration-300"
         >
           閱讀內文
-        </a>
+        </button>
       </div>
-    </div>
+    </Link>
   );
 };
 
