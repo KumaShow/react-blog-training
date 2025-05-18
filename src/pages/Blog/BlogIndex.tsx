@@ -7,9 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 export default function Blog() {
-
   // 假資料：最新文章
-  const lastestBlogPost: BlogPost = blogPostList.filter((blogPost: BlogPost) => blogPost.isNew)[0];
+  const lastestBlogPost: BlogPost = blogPostList.filter(
+    (blogPost: BlogPost) => blogPost.isNew
+  )[0];
 
   return (
     <div>
@@ -21,7 +22,11 @@ export default function Blog() {
       {/* 最新文章區塊 */}
       <section className="md:flex md:gap-6 border-b-1 border-neutral-300">
         <div className="md:basis-1/2">
-          <img className="object-cover h-full w-full" src={lastestBlogPost.imgUrl} alt={lastestBlogPost.title} />
+          <img
+            className="object-cover h-full w-full"
+            src={lastestBlogPost.imgUrl}
+            alt={lastestBlogPost.title}
+          />
         </div>
 
         <div className="px-3 py-12 md:basis-1/2 md:flex md:flex-col md:justify-center md:max-w-[40%]">
@@ -36,12 +41,13 @@ export default function Blog() {
 
           <h2 className="text-xl font-bold mb-2">{lastestBlogPost.title}</h2>
 
-          <p className="line-clamp-2 mb-4">
-            {lastestBlogPost.description}
-          </p>
+          <p className="line-clamp-2 mb-4">{lastestBlogPost.description}</p>
 
           <div>
-            <Link to={`/blog/${lastestBlogPost.id}`} className="inline-block text-black py-2 px-3 border-black border-1 rounded-4xl">
+            <Link
+              to={`/blog/${lastestBlogPost.id}`}
+              className="inline-block text-black py-2 px-3 border-black border-1 rounded-4xl"
+            >
               閱讀內文
             </Link>
           </div>
@@ -66,29 +72,29 @@ export default function Blog() {
           </div>
 
           <ul className="md:px- py-12 space-y-8 md:space-y-0 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3">
-            {
-              blogPostList.filter((blogPost: BlogPost) => !blogPost.isNew).map((blogPost: BlogPost, index: number) => {
+            {blogPostList
+              .filter((blogPost: BlogPost) => !blogPost.isNew)
+              .map((blogPost: BlogPost, index: number) => {
                 return (
                   <li key={blogPost.id}>
                     <Card {...blogPost} aosDelay={index * 150} />
                   </li>
-                )
-              })
-            }
+                );
+              })}
           </ul>
 
           {/* Pagination */}
           <div className="flex justify-center mt-8">
             <button className="bg-transparent px-2">{`<`}</button>
-            {
-              Array.from({ length: 5 }, (_, index) => (
-                <button key={index} className="bg-transparent py-2.5 px-4">{index + 1}</button>
-              ))
-            }
+            {Array.from({ length: 5 }, (_, index) => (
+              <button key={index} className="bg-transparent py-2.5 px-4">
+                {index + 1}
+              </button>
+            ))}
             <button className="bg-transparent ms-4 px-2">{`>`}</button>
           </div>
         </div>
       </section>
     </div>
-  )
+  );
 }
