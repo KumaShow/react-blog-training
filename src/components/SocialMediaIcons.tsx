@@ -17,7 +17,7 @@ export default function SocialMediaIcons() {
     <ul className="flex items-center text-primary text-2xl leading-none">
       {
         socialMediaIcons.map(icon => (
-          <li key={icon.link}>
+          <li key={icon.link} className="hover:translate-y-[-2px] transition-all duration-150">
             <a href={icon.link} target="_blank" className="p-2.5 block">
               <FontAwesomeIcon icon={icon.icon} />
             </a>
