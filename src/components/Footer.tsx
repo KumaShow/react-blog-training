@@ -60,7 +60,7 @@ export default function Footer() {
                   href={item.link}
                   className="group text-lg md:text-xl py-4 md:flex md:justify-between items-center"
                 >
-                  <div className="flex items-center">
+                  <div className="flex items-center group-hover:translate-x-2 transition-all duration-150">
                     {item.icon && (
                       <FontAwesomeIcon
                         icon={item.icon}
