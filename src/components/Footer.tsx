@@ -1,6 +1,11 @@
 import { useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faYoutube, faFacebook, faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import {
+  faYoutube,
+  faFacebook,
+  faLinkedin,
+  faInstagram,
+} from '@fortawesome/free-brands-svg-icons';
 import { faArrowRight, faPodcast } from '@fortawesome/free-solid-svg-icons';
 import SocialMediaIcons from './SocialMediaIcons';
 
@@ -11,8 +16,8 @@ export default function Footer() {
   // 首頁聯繫資訊 List
   const contactList = [
     {
-      title: 'alysewang@hexschool.com 合作洽談',
-      link: 'mailto:alysewang@hexschool.com',
+      title: 'example@example.com 合作洽談',
+      link: 'mailto:example@example.com',
     },
     {
       title: 'Youtube 職涯諮詢室',
@@ -41,48 +46,58 @@ export default function Footer() {
     },
   ];
 
-
-
   return (
     <footer className="border-t-1 border-t-neutral-400">
       {/* 首頁 Footer 區塊 */}
-      {isHomePage && <div className="container py-16 md:py-20">
-        <h2 className="text-5xl md:text-6xl mb-6">與我聯繫</h2>
+      {isHomePage && (
+        <div className="container py-16 md:py-20">
+          <h2 className="text-5xl md:text-6xl mb-6">與我聯繫</h2>
 
-        <ul className="[&>li:not(:last-child)]:mb-6 lg:[&>li:not(:last-child)]:mb-0">
-          {contactList.map((item, index) => (
-            <li key={index} className="border-b-2 border-neutral-300">
-              <a href={item.link} className="group text-lg md:text-xl py-4 md:flex md:justify-between items-center">
-                <div className="flex items-center">
-                  {
-                    item.icon && <FontAwesomeIcon icon={item.icon} className="text-primary mr-2 p-2.5 block" />
-                  }
+          <ul className="[&>li:not(:last-child)]:mb-6 lg:[&>li:not(:last-child)]:mb-0">
+            {contactList.map((item, index) => (
+              <li key={index} className="border-b-2 border-neutral-300">
+                <a
+                  href={item.link}
+                  className="group text-lg md:text-xl py-4 md:flex md:justify-between items-center"
+                >
+                  <div className="flex items-center">
+                    {item.icon && (
+                      <FontAwesomeIcon
+                        icon={item.icon}
+                        className="text-primary mr-2 p-2.5 block"
+                      />
+                    )}
 
-                  <span className="group-hover:translate-x-2 transition-all duration-150 block">
-                    {item.title}
-                  </span>
-                </div>
+                    <span className="group-hover:translate-x-2 transition-all duration-150 block">
+                      {item.title}
+                    </span>
+                  </div>
 
-                <FontAwesomeIcon icon={faArrowRight} className="group-hover:translate-x-2 transition-all duration-150 ml-2.5 md:ml-0" />
-              </a>
-            </li>
-          ))}
-        </ul>
-
-      </div>}
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    className="group-hover:translate-x-2 transition-all duration-150 ml-2.5 md:ml-0"
+                  />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {/* 非首頁 Footer 區塊 */}
-      {
-        !isHomePage && <div className="container py-20 hidden md:flex justify-between items-center">
+      {!isHomePage && (
+        <div className="container py-20 hidden md:flex justify-between items-center">
           <h2 className="md:text-2xl lg:text-3xl">
-            <a href="mailto:alysewang@hexschool.com">alysewang@hexschool.com</a>
+            <a href="mailto:example@example.com">example@example.com</a>
           </h2>
 
           <SocialMediaIcons />
         </div>
-      }
+      )}
 
-      <p className="text-center py-6 border-t-1 border-t-neutral-400">© 2025 Alyse Wang. All rights reserved.</p>
+      <p className="text-center py-6 border-t-1 border-t-neutral-400">
+        設計搞來源：2025 軟體工程師體驗營
+      </p>
     </footer>
-  )
+  );
 }
