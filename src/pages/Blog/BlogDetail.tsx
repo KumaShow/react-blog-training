@@ -11,11 +11,12 @@ import blogDetail_1 from '@/assets/img/BlogDetail/blogDetail_1.jpg';
 import blogDetail_2 from '@/assets/img/BlogDetail/blogDetail_2.jpg';
 import blogDetail_3 from '@/assets/img/BlogDetail/blogDetail_3.jpg';
 import blogDetail_4 from '@/assets/img/BlogDetail/blogDetail_4.jpg';
+import { BlogPost } from '@/interfaces/blog';
 
 export default function BlogDetail() {
   const { blogId } = useParams<{ blogId: string }>();
   const currentBlogId = Number(blogId);
-  const blogPost = blogPostList.find((post) => post.id === currentBlogId);
+  const blogPost = blogPostList.find((post: BlogPost) => post.id === currentBlogId);
 
   // 確保 blogPostList 不是空的，並且有元素
   const firstId = blogPostList.length > 0 ? blogPostList[0].id : -1;
