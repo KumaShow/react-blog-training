@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Card from '@/components/Card';
 import Banner from '@/components/Banner';
 import { BlogPost } from '@/interfaces/blog';
-import blogPostList from '@/pages/Blog/blogPostList.ts'; // 假資料：部落格文章列表
+import blogPostList from '@/pages/Blog/BlogPostList'; // 假資料：部落格文章列表
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';

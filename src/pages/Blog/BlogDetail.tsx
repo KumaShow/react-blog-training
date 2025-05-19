@@ -5,7 +5,7 @@ import {
   faChevronLeft,
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
-import blogPostList from '@/pages/Blog/blogPostList'; // 假資料：部落格文章列表
+import blogPostList from '@/pages/Blog/BlogPostList'; // 假資料：部落格文章列表
 import ReactMarkdown from 'react-markdown';
 import blogDetail_1 from '@/assets/img/BlogDetail/blogDetail_1.jpg';
 import blogDetail_2 from '@/assets/img/BlogDetail/blogDetail_2.jpg';

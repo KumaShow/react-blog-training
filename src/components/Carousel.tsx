@@ -3,7 +3,7 @@ import 'swiper/css'; // 核心樣式
 import 'swiper/css/navigation'; // 導航箭頭
 import '@/assets/style/swiper.css'; // 自訂樣式
 import Card from './Card';
-import blogPostList from '@/pages/Blog/blogPostList'; // 假資料：部落格文章列表
+import blogPostList from '@/pages/Blog/BlogPostList'; // 假資料：部落格文章列表
 
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { BlogPost } from '@/interfaces/blog';
