@@ -131,14 +131,12 @@ export default function Home() {
                   className="lg:max-w-6/10"
                   data-aos={index % 2 === 0 ? 'fade-right' : 'fade-left'}
                   data-aos-duration="1000"
-                  data-aos-delay={`${index * 200}`}
                 />
 
                 <div
                   className="p-6 bg-white lg:min-w-120 relative z-10"
                   data-aos={index % 2 === 0 ? 'fade-left' : 'fade-right'}
                   data-aos-duration="1000"
-                  data-aos-delay={`${index * 100}`}
                 >
                   <PrimaryDash />
                   <h3 className="text-xl mb-1">{item.title}</h3>
@@ -209,7 +207,6 @@ export default function Home() {
                 className="px-6 py-10 lg:px-10 lg:py-20 bg-white -mt-20 lg:mt-[29px] lg:-ml-[220px] w-full relative z-10"
                 data-aos="zoom-in-right"
                 data-aos-duration="1000"
-                data-aos-delay="200"
                 data-aos-anchor-placement="center-bottom"
               >
                 <PrimaryDash />
@@ -224,7 +221,6 @@ export default function Home() {
                 className="px-6 py-10 lg:px-10 lg:py-20 bg-neutral-200 lg:-mt-10 w-full relative z-11"
                 data-aos="zoom-in-right"
                 data-aos-duration="1500"
-                data-aos-delay="400"
                 data-aos-anchor-placement="center-bottom"
               >
                 <PrimaryDash />
@@ -244,13 +240,12 @@ export default function Home() {
           </div>
 
           <ul className="[&>li:not(:last-child)]:mb-6 lg:[&>li:not(:last-child)]:mb-0 md:grid md:grid-cols-2 xl:grid-cols-4 md:gap-6 lg:gap-8 bg-zinc-100 p-6">
-            {exampleList.map((example, index) => (
+            {exampleList.map((example) => (
               <li
                 key={example.name}
                 data-aos="fade-up"
                 data-aos-duration="1000"
                 data-aos-anchor-placement="center-bottom"
-                data-aos-delay={`${index * 200}`}
               >
                 <div className="overflow-hidden mb-4 rounded-full h-20 w-20">
                   <img
@@ -298,7 +293,6 @@ export default function Home() {
           <div
             data-aos="fade-right"
             data-aos-duration="1000"
-            data-aos-delay="200"
             data-aos-anchor-placement="center-bottom"
             className="w-full h-[50vh] lg:w-1/2 lg:h-full bg-cover bg-center"
             style={{ backgroundImage: `url(${home_img6})` }}
@@ -308,7 +302,6 @@ export default function Home() {
           <div
             data-aos="fade-left"
             data-aos-duration="1000"
-            data-aos-delay="200"
             data-aos-anchor-placement="center-bottom"
             className="w-full p-3 lg:w-1/2 bg-cover bg-center content-center"
             style={{ backgroundImage: `url(${bannerImg2})` }}
