@@ -6,6 +6,7 @@
 並且使用 Tailwind CSS 進行樣式設計，另外也嘗試使用 TypeScript 來進行型別檢查。
 
 > [Demo](https://kumashow.github.io/react-blog-training/)
+> 
 > [設計稿](https://www.figma.com/design/bBHUp0TeM0yjAlkjtyxQJI/2025ver.-體驗營學生設計稿?t=8A5gsqBeE8os666n-0)
 
 ## 使用技術
