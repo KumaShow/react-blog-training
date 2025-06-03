@@ -4,11 +4,9 @@ import './assets/index.css'
 import App from './App.tsx'
 import { HashRouter } from 'react-router-dom';
 
-const basename = import.meta.env.BASE_URL;
-
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <HashRouter basename={basename}>
+    <HashRouter>
       <App />
     </HashRouter>
   </StrictMode>,
