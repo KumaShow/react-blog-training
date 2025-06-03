@@ -26,7 +26,9 @@ const Card = (props: BlogPost) => {
         alt={title}
       />
 
-      <p className="mb-1">{date}</p>
+      <time className="mb-1" dateTime={date}>
+        {date}
+      </time>
 
       <div className="mb-2 flex flex-wrap items-center">
         {/* 渲染標籤 */}
@@ -49,7 +51,7 @@ const Card = (props: BlogPost) => {
         ))}
       </div>
 
-      <h2 className="text-xl font-bold mb-2 line-clamp-1">{title}</h2>
+      <h2 className="text-xl font-bold mb-2">{title}</h2>
 
       <p className="line-clamp-2 mb-4">{description}</p>
 
