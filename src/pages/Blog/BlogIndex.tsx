@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 export default function Blog() {
   // 假資料：最新文章
-  const lastestBlogPost: BlogPost = blogPostList.filter(
+  const latestBlogPost: BlogPost = blogPostList.filter(
     (blogPost: BlogPost) => blogPost.isNew
   )[0];
 
@@ -34,13 +34,15 @@ export default function Blog() {
         <div className="md:basis-1/2">
           <img
             className="object-cover h-full w-full"
-            src={lastestBlogPost.imgUrl}
-            alt={lastestBlogPost.title}
+            src={latestBlogPost.imgUrl}
+            alt={latestBlogPost.title}
           />
         </div>
 
         <div className="px-3 py-12 md:basis-1/2 md:flex md:flex-col md:justify-center md:max-w-[40%]">
-          <p className="mb-1">{lastestBlogPost.date}</p>
+          <time className="mb-1" dateTime={latestBlogPost.date}>
+            {latestBlogPost.date}
+          </time>
 
           <p className="mb-2">
             前端開發 x 職涯成長
@@ -49,13 +51,13 @@ export default function Blog() {
             </span>
           </p>
 
-          <h2 className="text-xl font-bold mb-2">{lastestBlogPost.title}</h2>
+          <h2 className="text-xl font-bold mb-2">{latestBlogPost.title}</h2>
 
-          <p className="line-clamp-2 mb-4">{lastestBlogPost.description}</p>
+          <p className="line-clamp-2 mb-4">{latestBlogPost.description}</p>
 
           <div>
             <Link
-              to={`/blog/${lastestBlogPost.id}`}
+              to={`/blog/${latestBlogPost.id}`}
               className="inline-block text-black py-2 px-3 border-black border-1 rounded-4xl hover:bg-primary hover:text-white transition duration-300"
             >
               閱讀內文
@@ -92,12 +94,11 @@ export default function Blog() {
           </div>
 
           <ul className="md:px- py-12 space-y-8 md:space-y-0 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3">
-            {filteredBlogPosts.map((blogPost: BlogPost, index: number) => {
+            {filteredBlogPosts.map((blogPost: BlogPost) => {
               return (
                 <li
                   key={blogPost.id}
                   data-aos="fade-up"
-                  data-aos-delay={index * 50}
                   data-aos-duration="800"
                   data-aos-anchor-placement="center-bottom"
                 >
